@@ -12,10 +12,37 @@ export default class CourseTable extends
     render() {
         return(
             <div>
-                <Link to="/courses/grid">
-                    <i className="fas fa-th float-right fa-2x"></i>
-                </Link>
-                <h2>Course Table</h2>
+
+                <div className="mb-3 row">
+                    <div className="col-3 d-block">
+                        Title
+                    </div>
+
+                    <div className="col-md-3 d-none d-md-block font">
+                        Owned by
+                        <i className="fa fa-sort-down"></i>
+                    </div>
+
+                    <div className="col-lg-3 d-none d-lg-block font">
+                        Last modified
+                    </div>
+
+                    <div className="col-1 d-block">
+                        <i className="fas fa-folder fa-2x"></i>
+                    </div>
+
+                    <div className="col-1 d-block">
+                        <i className="fas fa-sort-alpha-up-alt fa-2x"></i>
+                    </div>
+
+                    <div className="col-1 d-block">
+                        <Link to="/courses/grid">
+                            <i className="fa fa-th fa-2x"></i>
+                        </Link>
+                    </div>
+                </div>
+
+
                 <table className="table">
                     <thead></thead>
                     <tbody>

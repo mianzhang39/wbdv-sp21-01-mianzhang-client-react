@@ -63,12 +63,33 @@ export default class CourseManager
         return(
             <div>
                 <Link to="/">
-                    <i className="fas fa-2x fa-home float-right"></i>
+                    <i className="fas fa-2x fa-home fa-3x float-right"></i>
                 </Link>
-                <h1>Course Manager</h1>
-                <button onClick={this.addCourse}>
-                    Add Course
-                </button>
+
+                <div className="wbdv-sticky-nav-bar">
+                    <div className="row">
+                        <div className="col-1">
+                            <i className="fa fa-bars fa-2x"></i>
+                        </div>
+                        <div className="col-2 d-none d-sm-block">
+                            <h4>
+                                Course Manager
+                            </h4>
+                        </div>
+                        <div className="col-8">
+                            <input className="form-control"
+                                   placeholder="New Course Title"/>
+                        </div>
+                        <div className="col-1">
+                            <button onClick={this.addCourse}>
+                                <i className="fa fa-plus-circle fa-3x button1_color"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
 
                 {/*<Route path="/courses/table" component={CourseTable}/>*/}
                 <Route path="/courses/table" exact={true} >
