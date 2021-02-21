@@ -1,0 +1,27 @@
+.wbdv-sticky-nav-bar{
+    background-color: lightblue;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.container{
+    padding-top: 58px;
+}
+
+.font{
+    font-size: 40px;
+}
+
+.fix{
+    width: 100%;
+}
+
+.button1_color{
+    color: #ff0000;
+}
+
+.button2_color{
+    color: darkred;
+}

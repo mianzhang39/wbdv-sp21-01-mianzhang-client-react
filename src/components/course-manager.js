@@ -88,9 +88,6 @@ export default class CourseManager
                     </div>
                 </div>
 
-
-
-
                 {/*<Route path="/courses/table" component={CourseTable}/>*/}
                 <Route path="/courses/table" exact={true} >
                     <CourseTable
@@ -100,7 +97,10 @@ export default class CourseManager
                 </Route>
                 {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
                 <Route path="/courses/grid" exact={true} >
-                    <CourseGrid courses={this.state.courses}/>
+                    <CourseGrid
+                        courses={this.state.courses}
+                        updateCourse={this.updateCourse}
+                        deleteCourse={this.deleteCourse}/>
                 </Route>
                 {/*<CourseTable courses={this.state.courses}/>*/}
                 {/*<CourseGrid courses={this.state.courses}/>*/}
