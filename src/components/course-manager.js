@@ -48,7 +48,7 @@ export default class CourseManager
     addCourse = () => {
         // alert('add course')
         const newCourse = {
-            title: "New Course",
+            title: 'dd',
             owner: "me",
             lastModified: "2/10/2021"
         }
@@ -104,7 +104,16 @@ export default class CourseManager
                 </Route>
                 {/*<CourseTable courses={this.state.courses}/>*/}
                 {/*<CourseGrid courses={this.state.courses}/>*/}
+
+                <div className="row">
+                    <div className="col-12">
+                        <button onClick={this.addCourse} className="float-right">
+                            <i className="fa fa-plus-circle fa-3x"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
         )
     }
 }
