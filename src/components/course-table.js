@@ -46,7 +46,7 @@ export default class CourseTable extends
                 {/*</div>*/}
 
 
-                <table className="table">
+                <table className="table tr-padding">
                     <thead>
                     <tr>
                         <th className="d-block">Title</th>

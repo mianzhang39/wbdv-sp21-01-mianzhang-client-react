@@ -3,6 +3,7 @@ import CourseTable from "./course-table";
 import CourseGrid from "./course-grid";
 import {Link, Route} from "react-router-dom";
 import courseService from "../services/course-service";
+import "./course-list.css"
 
 export default class CourseManager
     extends React.Component {
@@ -132,7 +133,7 @@ export default class CourseManager
 
                 <div className="row">
                     <div className="col-12">
-                        <button onClick={this.addCourse} className="float-right">
+                        <button onClick={this.addCourse} className="float-right button2_color" >
                             <i className="fa fa-plus-circle fa-3x"></i>
                         </button>
                     </div>

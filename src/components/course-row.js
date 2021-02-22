@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom";
+import "./course-row.css"
 
 const CourseRow = (
     {
@@ -22,7 +23,7 @@ const CourseRow = (
     }
 
     return(
-        <tr>
+        <tr className="tr-padding">
             <td>
                 {
                     !editing &&
