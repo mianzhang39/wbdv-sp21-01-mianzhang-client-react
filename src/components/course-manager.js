@@ -7,7 +7,8 @@ import courseService from "../services/course-service";
 export default class CourseManager
     extends React.Component {
     state = {
-        courses: []
+        courses: [],
+        newCourse:'New Course'
     }
 
     componentDidMount() {
@@ -48,7 +49,7 @@ export default class CourseManager
     addCourse = () => {
         // alert('add course')
         const newCourse = {
-            title: 'dd',
+            title: 'New Course',
             owner: "me",
             lastModified: "2/10/2021"
         }
@@ -58,6 +59,22 @@ export default class CourseManager
                 this.setState(this.state)
             })
     }
+
+
+    addCourseWithTitle = (courseTitle) => {
+        const newCourse = {
+            title: courseTitle,
+            owner: "me",
+            lastModified: "2/10/2021"
+        }
+        courseService.createCourse(newCourse)
+            .then(actualCourse => {
+                this.state.courses.push(actualCourse)
+                this.setState(this.state)
+            })
+    }
+
+
 
     render() {
         return(
@@ -78,10 +95,18 @@ export default class CourseManager
                         </div>
                         <div className="col-8">
                             <input className="form-control"
-                                   placeholder="New Course Title"/>
+                                   onChange={(e) => this.setState(
+                                       {...this.state,newCourse: e.target.value})}
+                                   placeholder="New Course Title"
+                                    value={this.state.newCourse} a/>
+
                         </div>
                         <div className="col-1">
-                            <button onClick={this.addCourse}>
+                            <button onClick={() => {
+                                this.addCourseWithTitle(this.state.newCourse)
+                                this.setState({...this.state,newCourse:''})
+                            }
+                                }>
                                 <i className="fa fa-plus-circle fa-3x button1_color"></i>
                             </button>
                         </div>

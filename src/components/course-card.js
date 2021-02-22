@@ -46,7 +46,8 @@ const CourseCard = (
             <i onClick={() => deleteCourse(course)} className="fas fa-trash float-right fa-2x"></i>
             {
                 editing &&
-                <i onClick={() => saveCourse()} className="fas fa-check float-right fa-2x"></i>
+                <div><i onClick={() => saveCourse()} className="fas fa-check"></i>
+                    <i onClick={() => deleteCourse(course)} className="fas fa-trash"></i></div>
             }
 
             {
