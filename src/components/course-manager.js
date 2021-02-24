@@ -35,6 +35,13 @@ export default class CourseManager
             })
     }
 
+    findCourseById = (course) =>{
+        courseService.findCourseById(course._id)
+            .then(courses => this.setState({courses}))
+    }
+
+
+
     deleteCourse = (course) => {
         courseService.deleteCourse(course._id)
             .then(status => {
