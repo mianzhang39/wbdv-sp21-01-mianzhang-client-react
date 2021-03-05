@@ -199,5 +199,4 @@ export default connect(stpm, dtpm)(LessonTabs)
 // })
 //
 // const pm = connect(stpm, dtpm)
-//
 // export default pm(LessonTabs)
