@@ -4,6 +4,7 @@ import CourseGrid from "./course-grid";
 import {Link, Route} from "react-router-dom";
 import courseService from "../services/course-service";
 import "../course-list.css"
+import CourseEditor from "./course-editor";
 
 export default class CourseManager
     extends React.Component {
@@ -135,8 +136,13 @@ export default class CourseManager
                         updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}/>
                 </Route>
-                {/*<CourseTable courses={this.state.courses}/>*/}
-                {/*<CourseGrid courses={this.state.courses}/>*/}
+                <Route path={[
+                    "/courses/editor/:courseId",
+                    "/courses/editor/:courseId/:moduleId",
+                    "/courses/editor/:courseId/:moduleId/:lessonId"]}
+                       exact={true}
+                       render={(props) => <CourseEditor {...props}/>}>
+                </Route>
 
                 <div className="row">
                     <div className="col-12">
@@ -150,4 +156,3 @@ export default class CourseManager
         )
     }
 }
-// export default CourseManager

@@ -14,38 +14,6 @@ export default class CourseTable extends
         return(
             <div>
 
-
-
-                {/*<div className="mb-3 row">*/}
-                {/*    <div className="col-3 d-block">*/}
-                {/*        Title*/}
-                {/*    </div>*/}
-
-                {/*    <div className="col-md-3 d-none d-md-block font">*/}
-                {/*        Owned by*/}
-                {/*        <i className="fa fa-sort-down"></i>*/}
-                {/*    </div>*/}
-
-                {/*    <div className="col-lg-3 d-none d-lg-block font">*/}
-                {/*        Last modified*/}
-                {/*    </div>*/}
-
-                {/*    <div className="col-1 d-block right-fixed">*/}
-                {/*        <i className="fas fa-folder fa-2x"></i>*/}
-                {/*    </div>*/}
-
-                {/*    <div className="col-1 d-block right-fixed-h">*/}
-                {/*        <i className="fas fa-sort-alpha-up-alt fa-2x"></i>*/}
-                {/*    </div>*/}
-
-                {/*    <div className="col-1 d-block right-fixed-hhh">*/}
-                {/*        <Link to="/courses/grid">*/}
-                {/*            <i className="fa fa-th fa-2x"></i>*/}
-                {/*        </Link>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-
-
                 <table className="table tr-padding">
                     <thead>
                     <tr>
@@ -78,3 +46,53 @@ export default class CourseTable extends
         )
     }
 }
+
+
+// import React from 'react'
+// import CourseRow from "../course-row";
+// import {Link} from "react-router-dom";
+//
+// export default class CourseTable
+//     extends React.Component {
+//
+//     constructor(props) {
+//         super(props)
+//         console.log(props)
+//     }
+//
+//     render() {
+//         return(
+//             <div>
+//                 <Link to="/courses/grid">
+//                     <i className="fas fa-2x fa-th float-right"></i>
+//                 </Link>
+//                 <h2>Course Table</h2>
+//                 <table className="table">
+//                     <tbody>
+//                     {/*<CourseRow title="CS1234" owner="alice" lastModified={"1/12/34"}/>*/}
+//                     {/*<CourseRow title="CS2345" owner="bob"   lastModified={"2/23/24"}/>*/}
+//                     {/*<CourseRow title="CS3456" owner="charlie" lastModified={"3/22/14"}/>*/}
+//                     {/*<CourseRow title="CS4567" owner="dan"   lastModified={"4/12/36"}/>*/}
+//                     {
+//                         this.props.courses.map((course, ndx) =>
+//                             <CourseRow
+//                                 updateCourse={this.props.updateCourse}
+//                                 deleteCourse={this.props.deleteCourse}
+//                                 key={ndx}
+//                                 course={course}
+//                                 title={course.title}
+//                                 owner={course.owner}
+//                                 lastModified={course.lastModified}
+//                             />)
+//                     }
+//                     </tbody>
+//                 </table>
+//             </div>
+//         )
+//     }
+// }
+
+
+
+
+
