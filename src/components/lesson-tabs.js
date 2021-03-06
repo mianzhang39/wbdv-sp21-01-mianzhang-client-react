@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import EditableItem from "./editable-item";
 import {useParams} from "react-router-dom";
 import lessonService from '../services/lesson-service';
-import moduleService from "../services/module-service";
 
 const LessonTabs = (
     {
@@ -21,7 +20,7 @@ const LessonTabs = (
     }, [moduleId])
     return(
         <div>
-            <h2>Lessons</h2>
+            {/*<h2>Lessons</h2>*/}
             <ul className="nav nav-pills">
                 {
                     lessons.map(lesson =>
