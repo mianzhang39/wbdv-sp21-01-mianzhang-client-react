@@ -28,7 +28,7 @@ const CourseCard = (
                 {
                     !editing &&
                     // <Link to="/editor">
-                    <Link to={`/courses/editor/${course._id}`}>
+                    <Link to={`/courses/grid/edit/${course._id}`}>
                         {course.title}
                     </Link>
                 }

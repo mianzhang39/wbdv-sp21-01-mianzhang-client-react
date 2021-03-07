@@ -15,7 +15,7 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) =>
                 <th className="d-block right-fixed">
                     <i className="fas fa-folder fa-2x"></i>
                     <i className="fas fa-sort-alpha-up-alt fa-2x"></i>
-                    <Link to="/courses/table">
+                    <Link to="/courses/table/">
                         <i className="fas fa-list fa-2x"></i>
                     </Link></th>
             </tr>

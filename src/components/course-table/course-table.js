@@ -23,7 +23,7 @@ export default class CourseTable extends
                         <th className="d-block right-fixed">
                             <i className="fas fa-folder fa-2x"></i>
                             <i className="fas fa-sort-alpha-up-alt fa-2x"></i>
-                            <Link to="/courses/grid">
+                            <Link to="/courses/grid/">
                                 <i className="fa fa-th fa-2x"></i>
                             </Link></th>
                     </tr>

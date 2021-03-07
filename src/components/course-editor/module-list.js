@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import EditableItem from "./editable-item";
+import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-import moduleService from "../services/module-service"
+import moduleService from "../../services/module-service"
 
 const ModuleList = (
     {
@@ -12,7 +12,7 @@ const ModuleList = (
         updateModule,
         findModulesForCourse
     }) => {
-    const {courseId, moduleId} = useParams();
+    const {layout,courseId, moduleId} = useParams();
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
@@ -24,7 +24,7 @@ const ModuleList = (
                     myModules.map(module =>
                         <li className={`list-group-item ${module._id === moduleId ? 'active' : ''}`}>
                             <EditableItem
-                                to={`/courses/editor/${courseId}/${module._id}`}
+                                to={`/courses/${layout}/${courseId}/${module._id}`}
                                 updateItem={updateModule}
                                 deleteItem={deleteModule}
                                 active={true}
@@ -46,7 +46,7 @@ const stpm = (state) => {
 const dtpm = (dispatch) => {
     return {
         createModule: (courseId) => {
-            moduleService.createModuleForCourse(courseId, {title: "New Module"})
+            moduleService.createModule(courseId, {title: "New Module"})
                 .then(theActualModule => dispatch({
                     type: "CREATE_MODULE",
                     module: theActualModule

@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
-import EditableItem from "./editable-item";
+import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-import topicService from "../services/topic-service";
+import topicService from "../../services/topic-service";
 
 
 const TopicTabs = (
@@ -29,7 +29,7 @@ const TopicTabs = (
                         <li className="nav-item">
                             <EditableItem
                                 active={topic._id === topicId}
-                                to={`/courses/editor/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
+                                to={`/courses/${layout}/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
                                 updateItem={updateTopic}
                                 deleteItem={deleteTopic}
                                 item={topic}/>
@@ -49,7 +49,7 @@ const dtpm = (dispatch) => ({
     findTopicsForLesson: (lessonId) => {
         topicService.findTopicsForLesson(lessonId)
             .then(topics => dispatch({
-                type: "FIND_TOPIC",
+                type: "FIND_TOPICS_FOR_LESSON",
                 topics
             }))
     },

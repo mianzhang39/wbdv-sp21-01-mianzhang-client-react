@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect} from "react-redux";
-import EditableItem from "./editable-item";
+import EditableItem from "../editable-item";
 import {useParams} from "react-router-dom";
-import lessonService from '../services/lesson-service';
+import lessonService from '../../services/lesson-service';
 
 const LessonTabs = (
     {
@@ -27,7 +27,7 @@ const LessonTabs = (
                         <li className="nav-item">
                             <EditableItem
                                 active={lesson._id === lessonId}
-                                to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                to={`/courses/${layout}/${courseId}/${moduleId}/${lesson._id}`}
                                 updateItem={updateLesson}
                                 deleteItem={deleteLesson}
                                 item={lesson}/>
@@ -47,7 +47,7 @@ const dtpm = (dispatch) => ({
     findLessonsForModule: (moduleId) => {
         lessonService.findLessonsForModule(moduleId)
             .then(lessons => dispatch({
-                type: "FIND_LESSON",
+                type: "FIND_LESSONS_FOR_MODULE",
                 lessons
             }))
     },
