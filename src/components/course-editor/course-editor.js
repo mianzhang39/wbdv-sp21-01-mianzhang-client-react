@@ -8,6 +8,7 @@ import ModuleList from "./module-list";
 import LessonTabs from "./lesson-tabs";
 import TopicTabs from "./topic-tabs";
 import topicReducer from "../../reducers/topic-reducer";
+import CourseManager from "../course-manager";
 
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
@@ -17,8 +18,8 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-const CourseEditor = ({history, params}) => {
-    const {layout, courseId, moduleId,title} = useParams();
+const CourseEditor = ({history, params, courseTitle}) => {
+    const {layout, courseId, moduleId} = useParams();
     return(
         <Provider store={store}>
             <h1>
@@ -28,7 +29,7 @@ const CourseEditor = ({history, params}) => {
                 <Link to={`/courses/${layout}`}>
                     <i className="fas fa-times"></i>
                 </Link>
-                Course Editor {title}
+                {courseTitle}
                 {/*<i className="fas fa-times float-right"*/}
                 {/*   onClick={() => history.goBack()}></i>*/}
             </h1>

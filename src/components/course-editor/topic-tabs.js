@@ -29,7 +29,7 @@ const TopicTabs = (
                         <li className="nav-item">
                             <EditableItem
                                 active={topic._id === topicId}
-                                to={`/courses/${layout}/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
+                                to={`/courses/${layout}/edit/${courseId}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}
                                 updateItem={updateTopic}
                                 deleteItem={deleteTopic}
                                 item={topic}/>

@@ -38,7 +38,10 @@ export default class CourseTable extends
                                 course={course}
                                 title={course.title}
                                 lastModified={course.lastModified}
-                                owner={course.owner}/>)
+                                owner={course.owner}
+                                courseTitle = {this.courseTitle}
+                                getCourseTitle = {this.props.getCourseTitle}
+                            />)
                     }
                     </tbody>
                 </table>

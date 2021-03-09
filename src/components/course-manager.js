@@ -10,7 +10,8 @@ export default class CourseManager
     extends React.Component {
     state = {
         courses: [],
-        newCourse:'New Course'
+        newCourse:'New Course',
+        courseTitle:''
     }
 
     componentDidMount() {
@@ -83,6 +84,11 @@ export default class CourseManager
             })
     }
 
+    getCourseTitle = (title) => {
+        this.setState({
+            courseTitle:title
+        })
+    }
 
 
     render() {
@@ -124,18 +130,22 @@ export default class CourseManager
                                 </button>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-12">
-                                <button onClick={this.addCourse} className="float-right button2_color" >
-                                    <i className="fa fa-plus-circle fa-3x"></i>
-                                </button>
-                            </div>
-                        </div>
+
                     </div>
                     <CourseTable
                         updateCourse={this.updateCourse}
                         deleteCourse={this.deleteCourse}
-                        courses={this.state.courses}/>
+                        courses={this.state.courses}
+                        getCourseTitle = {this.getCourseTitle}
+                        courseTitle = {this.state.courseTitle}
+                    />
+                    <div className="row">
+                        <div className="col-12">
+                            <button onClick={this.addCourse} className="float-right button2_color" >
+                                <i className="fa fa-plus-circle fa-3x"></i>
+                            </button>
+                        </div>
+                    </div>
                 </Route>
                 {/*<Route path="/courses/grid" component={CourseGrid}/>*/}
                 <Route path="/courses/grid" exact={true} >
@@ -181,11 +191,13 @@ export default class CourseManager
                         deleteCourse={this.deleteCourse}/>
                 </Route>
                 <Route path={[
-                    "/courses/:layout/:courseId",
-                    "/courses/:layout/:courseId/:moduleId",
-                    "/courses/:layout/:courseId/:moduleId/:lessonId"]}
+                    "/courses/:layout/edit/:courseId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId",
+                    "/courses/:layout/edit/:courseId/modules/:moduleId/lessons/:lessonId/topics/:topicId",
+                ]}
                        exact={true}
-                       render={(props) => <CourseEditor {...props}/>}>
+                       render={(props) => <CourseEditor {...props} courseTitle={this.state.courseTitle} />}>
                 </Route>
 
 

@@ -8,7 +8,9 @@ const CourseRow = (
         course,
         lastModified,
         title,
-        owner
+        owner,
+        getCourseTitle,
+        CourseTitle
     }) => {
     const [editing, setEditing] = useState(false)
     const [newTitle, setNewTitle] = useState(title)
@@ -27,7 +29,11 @@ const CourseRow = (
             <td>
                 {
                     !editing &&
-                    <Link to={`/courses/table/edit/${course._id}`}>
+                    <Link to={`/courses/table/edit/${course._id}`}
+                    onClick={() =>{
+                        getCourseTitle(title)
+                    }}
+                    >
                         {title}
                     </Link>
                 }

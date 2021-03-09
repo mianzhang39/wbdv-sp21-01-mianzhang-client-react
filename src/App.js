@@ -11,7 +11,7 @@ function App() {
         <div className="container-fluid">
           <Route path="/" exact={true}  component={Home}/>
           <Route path="/courses" component={CourseManager}/>
-          <Route path="/editor" exact={true} render={(props) => <CourseEditor {...props}/>}/>
+          {/*<Route path="/edit" exact={true} render={(props) => <CourseEditor {...props}/>}/>*/}
         </div>
       </BrowserRouter>
   );

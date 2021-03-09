@@ -31,6 +31,11 @@ export const deleteModule = (moduleId) =>
     })
         .then(response => response.json())
 
+
+export const findCourseById = (courseId) =>
+    fetch(`${COURSES_URL}/${courseId}`)
+        .then(response => response.json())
+
 const api = {
     findModulesForCourse, createModule,
     deleteModule, updateModule
