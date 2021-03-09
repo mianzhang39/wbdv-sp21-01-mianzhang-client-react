@@ -188,7 +188,9 @@ export default class CourseManager
                     <CourseGrid
                         courses={this.state.courses}
                         updateCourse={this.updateCourse}
-                        deleteCourse={this.deleteCourse}/>
+                        deleteCourse={this.deleteCourse}
+                        getCourseTitle = {this.getCourseTitle}
+                        courseTitle = {this.state.courseTitle}/>
                 </Route>
                 <Route path={[
                     "/courses/:layout/edit/:courseId",

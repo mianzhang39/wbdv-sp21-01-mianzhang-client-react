@@ -2,15 +2,16 @@ import React from 'react'
 import {Link} from "react-router-dom";
 import CourseCard from "./course-card";
 import './course-table/course-table.css';
+import CourseRow from "./course-row/course-row";
 
 
-const CourseGrid = ({courses,deleteCourse,updateCourse}) =>
+const CourseGrid = ({courses,deleteCourse,updateCourse,courseTitle,getCourseTitle}) =>
     <div>
 
         <table className="table">
             <thead>
             <tr>
-                <th className="d-none d-sm-table-cell">Recent Docoments</th>
+                <th className="d-none d-sm-table-cell">Recent Documents</th>
                 <th className="d-none d-sm-table-cell">Owned by me<i className="fa fa-sort-down"></i></th>
                 <th className="d-block right-fixed">
                     <i className="fas fa-folder fa-2x"></i>
@@ -26,9 +27,11 @@ const CourseGrid = ({courses,deleteCourse,updateCourse}) =>
             {
                 courses.map(course =>
                     <CourseCard
-                        course={course}
-                        deleteCourse={deleteCourse}
-                        updateCourse={updateCourse}/>
+                        course = {course}
+                        deleteCourse = {deleteCourse}
+                        updateCourse = {updateCourse}
+                        courseTitle = {courseTitle}
+                        getCourseTitle = {getCourseTitle}/>
                 )
             }
         </div>

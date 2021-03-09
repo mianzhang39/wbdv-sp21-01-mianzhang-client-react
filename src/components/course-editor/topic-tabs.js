@@ -15,7 +15,7 @@ const TopicTabs = (
     }) => {
     const {layout,courseId, moduleId, lessonId, topicId} = useParams();
     useEffect(() => {
-        if(lessonId !== "undefined" && typeof lessonId !== "undefined") {
+        if(lessonId !== "undefined" || typeof lessonId !== "undefined") {
             findTopicsForLesson(lessonId)
         }
     }, [lessonId])

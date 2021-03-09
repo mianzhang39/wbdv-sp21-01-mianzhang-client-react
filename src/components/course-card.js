@@ -6,7 +6,9 @@ const CourseCard = (
     {
         course,
         deleteCourse,
-        updateCourse
+        updateCourse,
+        getCourseTitle,
+        CourseTitle
     }) => {
     const [editing, setEditing] = useState(false)
     const [title, setTitle] = useState(course.title)
@@ -28,7 +30,9 @@ const CourseCard = (
                 {
                     !editing &&
                     // <Link to="/editor">
-                    <Link to={`/courses/grid/edit/${course._id}`}>
+                    <Link to={`/courses/grid/edit/${course._id}`}
+                        onClick={() =>{
+                        getCourseTitle(course.title)}}>
                         {course.title}
                     </Link>
                 }
