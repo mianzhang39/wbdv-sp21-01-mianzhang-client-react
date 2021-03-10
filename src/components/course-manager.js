@@ -11,7 +11,7 @@ export default class CourseManager
     state = {
         courses: [],
         newCourse:'New Course',
-        courseTitle:''
+        courseTitle : ''
     }
 
     componentDidMount() {
