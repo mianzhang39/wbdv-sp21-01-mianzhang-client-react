@@ -31,7 +31,7 @@ const WidgetList = (
                             <GeneralWidget
                                 updateItem={updateWidget}
                                 deleteItem={deleteWidget}
-                                item_widget = {_widget}/>
+                                item = {_widget}/>
                         </li>
                     )
                 }

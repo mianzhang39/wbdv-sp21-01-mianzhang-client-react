@@ -1,5 +1,4 @@
 import React from 'react'
-import ParagraphWidget from "./paragraph-widget";
 
 const HeadingWidget = ({widget, setWidget,editing}) => {
     return(
@@ -11,7 +10,6 @@ const HeadingWidget = ({widget, setWidget,editing}) => {
         {widget.size === 4 && <h4>{widget.text}</h4>}
         {widget.size === 5 && <h5>{widget.text}</h5>}
         {widget.size === 6 && <h6>{widget.text}</h6>}
-
 
 
         {

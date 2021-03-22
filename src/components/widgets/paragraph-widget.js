@@ -2,8 +2,6 @@ import React from 'react'
 
 const ParagraphWidget = ({widget, setWidget, editing}) =>
     <div>
-
-
         {
             editing &&
             <div>
