@@ -13,13 +13,6 @@ const HeadingWidget = ({widget, setWidget,editing}) => {
         {widget.size === 6 && <h6>{widget.text}</h6>}
 
 
-        {widget.type === 'PARAGRAPH' &&
-        <ParagraphWidget
-            setWidget={setWidget}
-            editing={1 === 1}
-            widget={widget}/>
-        }
-
 
         {
             editing &&

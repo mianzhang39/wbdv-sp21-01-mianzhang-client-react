@@ -1,15 +1,7 @@
 import React from 'react'
-import HeadingWidget from "./heading-widget";
 
 const ParagraphWidget = ({widget, setWidget, editing}) =>
     <div>
-
-        { widget.type === "HEADING" &&
-        <HeadingWidget
-            setWidget={setWidget}
-            editing={ 1 === 1 }
-            widget={widget}/>
-        }
 
 
         {

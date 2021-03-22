@@ -36,8 +36,6 @@ const GeneralWidget = (
                 {item_widget.size === 6 && <h6>{item_widget.text}</h6>}
 
 
-
-
                 <i onClick={() => {
                     setWidget(item_widget)
                     setEditing(true)
