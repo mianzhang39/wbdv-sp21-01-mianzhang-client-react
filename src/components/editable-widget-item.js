@@ -10,13 +10,13 @@ const GeneralWidget = (
         updateItem,
         item
     }) => {
-    const [widget, setWidget] = useState({})
-    // const [editing, setEditing] = useState(false)
+    const [widget, setWidget] = useState(item)
+    const [id, setId] = useState(false)
 
     return (
         <div>
             {
-                item.id === widget.id &&
+                id === widget.id &&
                 <div>
                     <i onClick={() => deleteItem(item)} className="fas fa-trash float-right"></i>
                     <i onClick={() => {
@@ -49,11 +49,11 @@ const GeneralWidget = (
 
 
             {
-                item.id !== widget.id &&
+                id !== widget.id &&
                 <>
                     <h1> {item.id} {item.type} Widget</h1>
                     <i onClick={() => {
-                        setWidget(item)
+                        setId(item.id)
                         // setEditing(true)
                     }} className="fas fa-cog float-right"></i>
                 </>
@@ -89,14 +89,14 @@ const GeneralWidget = (
                 item.type === "HEADING" &&
                 <HeadingWidget
                     setWidget={setWidget}
-                    editing={item.id === widget.id}
+                    editing={item.id === id}
                     widget={widget}/>
             }
             {
                 item.type === "PARAGRAPH" &&
                 <ParagraphWidget
                     setWidget={setWidget}
-                    editing={item.id === widget.id}
+                    editing={item.id === id}
                     widget={widget}/>
             }
 
@@ -104,14 +104,14 @@ const GeneralWidget = (
                 item.type === "LIST" &&
                 <ListWidget
                     setWidget={setWidget}
-                    editing={item.id === widget.id}
+                    editing={item.id === id}
                     widget={widget}/>
             }
             {
                 item.type === "IMAGE" &&
                 <ImageWidget
                     setWidget={setWidget}
-                    editing={item.id === widget.id}
+                    editing={item.id === id}
                     widget={widget}/>
             }
         </div>

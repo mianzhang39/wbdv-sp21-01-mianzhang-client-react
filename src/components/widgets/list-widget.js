@@ -10,7 +10,7 @@ const ListWidget = ({widget, setWidget, editing}) => {
                         widget.ordered &&
                         <ol>
                             {
-                                widget && widget.text && widget.text.split("i").map(item => {
+                                 widget.text.split("\n").map(item => {
                                     return(
                                         <li>{item}</li>
                                     )
@@ -22,7 +22,7 @@ const ListWidget = ({widget, setWidget, editing}) => {
                         !widget.ordered &&
                         <ul>
                             {
-                                widget && widget.text && widget.text.split("i").map(item => {
+                                 widget.text.split("\n").map(item => {
                                     return(
                                         <li>{item}</li>
                                     )
@@ -36,7 +36,8 @@ const ListWidget = ({widget, setWidget, editing}) => {
                 editing &&
                 <div>
                     <input
-                        onChange={(e) => setWidget({...widget, ordered: e.target.value})}
+                        onChange={(e) => {
+                            setWidget({...widget, ordered: e.target.value == 'on'})}}
                         type="checkbox"/> Ordered
                     <br/>
                     List Items
