@@ -24,6 +24,7 @@ const WidgetList = (
         <div>
             <i onClick={() => createWidget(topicId)} className="fas fa-plus float-right fa-2x"></i>
             <h1>Widget List</h1>
+            {/*<h1>{topicId}</h1>*/}
             <ul className="list-group">
                 {
                     widgets.map(_widget =>
@@ -46,7 +47,7 @@ const stpm = (state) => ({
 })
 const dtpm = (dispatch) => ({
     createWidget: (topicId) => widgetActions.createWidget(dispatch, topicId),
-    updateWidget: (newItem) => widgetActions.updateWidget(dispatch, newItem),
+    updateWidget: (id, newItem) => widgetActions.updateWidget(dispatch, id, newItem),
     deleteWidget: (widgetToDelete) => widgetActions.deleteWidget(dispatch, widgetToDelete),
     findWidgetsForTopic: (topicId) => widgetActions.findWidgetsForTopic(dispatch, topicId)
 })
