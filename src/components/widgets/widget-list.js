@@ -13,21 +13,21 @@ const WidgetList = (
         deleteWidget,
         findWidgetsForTopic
     }) => {
-    const {layout,courseId, moduleId, lessonId, topicId, widgetId} = useParams()
+    const {layout,courseId, moduleId, lessonId, topicId, widgetId}= useParams()
     useEffect(() => {
-        if(topicId !== "undefined" || typeof topicId !== "undefined") {
+        if(topicId !== "undefined" || typeof topicId !== "undefined")
+        {
             findWidgetsForTopic(topicId)
         }
     }, [topicId])
-
+    // console.log(widgets)
     return(
         <div>
             <i onClick={() => createWidget(topicId)} className="fas fa-plus float-right fa-2x"></i>
             <h1>Widget List</h1>
-            {/*<h1>{topicId}</h1>*/}
             <ul className="list-group">
                 {
-                    widgets.map(_widget =>
+                   widgets && widgets.map(_widget =>
                         <li key={_widget.id} className="list-group-item">
                             <GeneralWidget
                                 updateItem={updateWidget}
