@@ -35,13 +35,11 @@ const MultipleChoiceQuestion = ({question}) => {
                 {/*                    name={question._id}*/}
                 {/*                    value =  {choice}*/}
                 {/*                    className={`${highlight}`}/>*/}
-
                 {/*            )}*/}
                 {/*        else {*/}
                 {/*            return true*/}
                 {/*        }*/}
                 {/*    })*/}
-
                 {/*}*/}
 
 
@@ -71,56 +69,46 @@ const MultipleChoiceQuestion = ({question}) => {
             {/*                </label>*/}
             {/*            )*/}
             {/*        }*/}
-
             {/*    })*/}
             {/*}*/}
-            {
+
                 question.choices.map((choice) => {
-                    return(
-                        // <label className={`form-control ${"correct"}`}>
-
-                            <label className={`form-control ${() => {
-                                if(({choice} === answer) && (answer === question.correct)) {
-                                    return "correct"
-                                    // let flag;
-                                    // return flag = "correct"
-                                } else if (({choice} === answer) && (answer !== question.correct)) {
-                                    return "incorrect"
-                                    // let flag;
-                                    // return flag = "incorrect"
-                                } else {
-                                    return "initial-highlight"
-                                    // let flag;
-                                    // return flag = "initial-highlight"
-                                }
-                            }}`}>
-
-                            <input
-                                type="radio"
-                                name={question._id}
-                                id = {choice}
-                                onClick={() => {
-                                    setAnswer(choice)
-                                    setGraded(false)
-                                }}
-
-                                // color={() => {
-                                //     return(
-                                //         <div>
-                                //             {
-                                //                 graded && answer == question.correct &&
-                                //                 answer == choice &&
-                                //             }
-                                //         </div>
-                                //     )
-                                // }}
-                                />
-                            {choice}
-                            {/*<label for = {choice} className={`${highlight}`}> {choice}</label>*/}
-                        </label>
-                    )
+                if(({choice} === answer) && (answer === question.correct)) {
+                return  <label className={`form-control ${"correct"}`}> <input
+            type="radio"
+            name={question._id}
+            id = {choice}
+            onClick={() => {
+            setAnswer(choice)
+            setGraded(false)
+        }}/>
+        {choice}
+            </label>}
+            else if (({choice} === answer) && (answer !== question.correct)) {
+            return  <label className={`form-control ${"incorrect"}`}>
+            <input
+            type="radio"
+            name={question._id}
+            id = {choice}
+            onClick={() => {
+            setAnswer(choice)
+            setGraded(false)
+        }}/>
+        {choice}
+            </label>}
+            else {return <label className={`form-control ${"initial-highlight"}`}>
+            <input
+            type="radio"
+            name={question._id}
+            id = {choice}
+            onClick={() => {
+            setAnswer(choice)
+            setGraded(false)
+        }}/>
+        {choice}
+            </label>}
                 })
-            }
+
             <label>
                 Your answer: {answer}
             </label>
@@ -137,7 +125,6 @@ const MultipleChoiceQuestion = ({question}) => {
                     {answer !== question.correct &&
                     setHighlight("incorrect")
                     }
-                        // console.log("hi", answer,question.correct)
                 }}>
                 Grade
             </button>
