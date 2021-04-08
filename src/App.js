@@ -1,9 +1,9 @@
 import './App.css';
 import CourseManager from "./components/course-manager";
-import CourseEditor from "./components/course-editor/course-editor";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "./components/home"
-import CourseTable from "./components/course-table/course-table";
+import QuizzesList from "./components/quizzes/quizzes-list";
+import Quiz from "./components/quizzes/quiz";
 
 function App() {
   return (
@@ -12,6 +12,12 @@ function App() {
           <Route path="/" exact={true}  component={Home}/>
           <Route path="/courses" component={CourseManager}/>
           {/*<Route path="/edit" exact={true} render={(props) => <CourseEditor {...props}/>}/>*/}
+            <Route path="/courses/:courseId/quizzes" exact={true}>
+                <QuizzesList/>
+            </Route>
+            <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
+                <Quiz/>
+            </Route>
         </div>
       </BrowserRouter>
   );
