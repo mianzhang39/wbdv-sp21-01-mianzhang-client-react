@@ -9,3 +9,11 @@
 .initial-highlight{
     background-color: unset;
 }
+
+.check{
+    color:green;
+}
+
+.times{
+    color: red;
+}

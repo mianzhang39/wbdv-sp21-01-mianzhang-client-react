@@ -11,12 +11,12 @@ const MultipleChoiceQuestion = ({question}) => {
                 {question.question}
                 {
                     graded && answer === question.correct &&
-                    <i className="fas fa-check"></i>
+                    <i className="fas fa-check check"></i>
 
                 }
                 {
                     graded && answer !== question.correct &&
-                    <i className="fas fa-times"></i>
+                    <i className="fas fa-times times"></i>
                 }
             </h4>
 
