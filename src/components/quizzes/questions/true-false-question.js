@@ -2,8 +2,9 @@ import React, {useState} from "react";
 import './question-color-bar.css'
 
 const TrueFalseQuestion = ({question}) => {
-    const [answer, setAnswer] = useState("")
+    const [answer, setAnswer] = useState(null)
     const [graded, setGraded] = useState(false)
+    const choices = ["false","true"]
     return (
         <div>
             <h4>
@@ -11,174 +12,52 @@ const TrueFalseQuestion = ({question}) => {
                 {
                     graded && answer == question.correct &&
                     <i className="fas fa-check check"></i>
+                    // && console.log(answer,question.correct)
 
                 }
                 {
                     graded && answer != question.correct &&
                     <i className="fas fa-times times"></i>
+                    // && console.log(answer,question.correct)
                 }
 
             </h4>
 
-            {(answer != "") && (answer != question.correct) &&
-            <li className={`list-group-item
-            ${
-                ("true" == answer) && graded ? 'incorrect'
-                    :
-                    ("false" == answer) && graded ? 'correct'
-                        : 'initial-highlight'}`}>
 
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("true")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    true
-                </label>
-            </li>}
+            {/*// ${graded? ((answer == choice || choice == question.correct)? ((choice == question.correct)? 'correct' : 'incorrect'): 'initial-highlight'):'initial-highlight' }*/}
 
-            {(answer != "") && (answer != question.correct) &&
-            <li className={`list-group-item
-            ${
-                ("true" == answer) && graded ? 'correct'
-                    :
-                    ("false" == answer) && graded ? 'incorrect'
-                        : 'initial-highlight'}`}>
+            <ul className='list-group'>
+                {
+                    choices.map((choice) => {
+                        const RadioColor = (answer, choice,graded) => {
+                            if (graded) {
+                                if (choice == answer || choice == question.correct) {
+                                    if (choice == question.correct){
+                                        return 'correct'
+                                    }
+                                    else {
+                                        return 'incorrect'
+                                    }
+                                }
+                            }
+                            else {
+                                return 'initial-highlight'
+                            }
+                        }
+                            return (
+                                <label className={`list-group-item ${RadioColor(answer, choice,graded)}`}>
+                                    <input
+                                        onClick={() => {
+                                            setAnswer(choice)
+                                            setGraded(false)
+                                        }}
+                                        type="radio"
+                                        name={question._id}
+                                    />{choice}
+                                </label>
+                            )})}
+            </ul>
 
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("false")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    false
-                </label>
-            </li>}
-
-            {(answer != "") && (answer == question.correct) &&
-            <li className={`list-group-item
-            ${
-                ("true" == answer) && graded ? 'correct'
-                    : 'initial-highlight'}`}>
-
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("true")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    true
-                </label>
-            </li>}
-
-
-            {(answer != "") && (answer == question.correct) &&
-            <li className={`list-group-item
-            ${
-                    ("false" == answer) && graded ? 'correct'
-                        : 'initial-highlight'}`}>
-
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("false")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    false
-                </label>
-            </li>}
-
-            {(answer == "") &&
-            <li className="list-group-item initial-highlight">
-
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("true")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    true
-                </label>
-            </li>}
-
-            {(answer == "") &&
-            <li className="list-group-item initial-highlight">
-
-                <label>
-                    <input
-                        type="radio"
-                        onClick={() => {
-                            setAnswer("false")
-                            setGraded(false)
-                        }}
-                        name={question._id}/>
-                    false
-                </label>
-            </li>}
-
-
-
-
-
-
-
-
-
-
-
-
-            {/*// <li className={`list-group-item*/}
-            {/*// ${*/}
-            {/*//     ("true" == answer) && (answer == question.correct) && graded ? 'correct'*/}
-            {/*//         :*/}
-            {/*//         ("true" == answer) && (answer != question.correct) && graded ? 'incorrect'*/}
-            {/*//             : 'initial-highlight'}`}>*/}
-            {/*//*/}
-            {/*// <label>*/}
-            {/*//     <input*/}
-            {/*//         id = "1"*/}
-            {/*//         type="radio"*/}
-            {/*//         onClick={() => {*/}
-            {/*//             setAnswer("true")*/}
-            {/*//             setGraded(false)*/}
-            {/*//         }}*/}
-            {/*//         name={question._id}*/}
-            {/*//         onChange={(e) => {console.log(e.target.value)}}/>*/}
-            {/*//         true*/}
-            {/*// </label>*/}
-            {/*// </li>*/}
-
-
-
-            {/*<li className={`list-group-item*/}
-            {/*${*/}
-            {/*    ("false" == answer) && (answer == question.correct) && graded ? 'correct'*/}
-            {/*        :*/}
-            {/*        ("false" == answer) && (answer != question.correct) && graded ? 'incorrect'*/}
-            {/*            : 'initial-highlight'}`}>*/}
-            {/*<label>*/}
-            {/*    <input*/}
-            {/*        id = "2"*/}
-            {/*        type="radio"*/}
-            {/*        onClick={() => {*/}
-            {/*            setAnswer("false")*/}
-            {/*            setGraded(false)*/}
-            {/*        }}*/}
-            {/*        name={question._id}/>*/}
-            {/*        false*/}
-            {/*</label>*/}
-            {/*</li>*/}
 
             <label>
                 Your answer: {answer}

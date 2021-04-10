@@ -2,9 +2,8 @@ import React,{useState} from "react";
 import './question-color-bar.css'
 
 const MultipleChoiceQuestion = ({question}) => {
-    const [answer, setAnswer] = useState("")
+    const [answer, setAnswer] = useState(null)
     const [graded, setGraded] = useState(false)
-    const [highlight, setHighlight] = useState("initial-highlight")
     return (
         <div>
             <h4>
@@ -24,76 +23,39 @@ const MultipleChoiceQuestion = ({question}) => {
             <ul className="list-group">
                 {
                     question.choices.map((choice) => {
-                        return (
-                            <>
-                                {(answer != "") && (answer != question.correct) &&
-                                <label className={`list-group-item
-                                        ${(choice == question.correct) && graded ? 'correct'
-                                    :
-                                    (choice == answer) && graded ? 'incorrect'
-                                        : 'initial-highlight'}`}>
-
-                                    <input
-                                        onClick={() => {
-                                            setAnswer(choice)
-                                            setGraded(false)
-                                        }}
-                                        type="radio"
-                                        name={question._id}/>{choice}
-                                </label>
+                    const RadioColor = (answer, choice,graded) => {
+                            if (graded) {
+                                if (choice == answer || choice == question.correct){
+                                    if (choice == question.correct){
+                                        return 'correct'}
+                                    else { return 'incorrect'}
                                 }
-
-                                {(answer != "") && (answer == question.correct) &&
-                                <label className={`list-group-item
-                            ${
-                                    (choice == answer) && (answer == question.correct) && graded ? 'correct'
-                                        : 'initial-highlight'}`}>
-
-                                    <input
-                                        onClick={() => {
-                                            setAnswer(choice)
-                                            setGraded(false)
-                                        }}
-                                        type="radio"
-                                        name={question._id}/>{choice}
-                                </label>
+                                else {
+                                    return 'initial-highlight'
                                 }
-                                {answer == "" &&
-                                <label className="list-group-item initial-highlight">
+                            }
+                            else {
+                                return 'initial-highlight'
+                            }
+                    }
+                    return (
+                    <label className={`list-group-item 
+                    
+                           
+                            ${RadioColor(answer, choice,graded)}
+                            `}>
 
-                                    <input
-                                        onClick={() => {
-                                            setAnswer(choice)
-                                            setGraded(false)
-                                        }}
-                                        type="radio"
-                                        name={question._id}/>{choice}
-                                </label>
-                                }
-
-
-                            </>
-
-
-                            // <li className={`list-group-item
-                            // ${
-                            //     (choice == answer) && (answer == question.correct) && graded ? 'correct'
-                            //         :
-                            //         (choice == answer) && (answer != question.correct) && graded ? 'incorrect'
-                            //     :  'initial-highlight'}`}>
-                            //
-                            //
-                            //     <label><input
-                            //         onClick={() => {
-                            //             setAnswer(choice)
-                            //             setGraded(false)
-                            //         }}
-                            //         type="radio"
-                            //         name={question._id}/>{choice}</label>
-                            // </li>
-
-                        )
-                    })
+                    <input
+                    onClick={() => {
+                    setAnswer(choice)
+                    setGraded(false)
+                }}
+                    type="radio"
+                    name={question._id}
+                    value = {choice}
+                    />{choice}
+                    </label>
+                )})
                 }
             </ul>
 
@@ -107,13 +69,6 @@ const MultipleChoiceQuestion = ({question}) => {
                 className="btn btn-success"
                 onClick={() => {
                     setGraded(true)
-                    // {
-                    //     answer === question.correct &&
-                    //     setHighlight("correct")}
-                    // {answer !== question.correct &&
-                    // setHighlight("incorrect")
-                    // }
-                    // console.log("2",answer,question.correct)
                 }}>
                 Grade
             </button>
