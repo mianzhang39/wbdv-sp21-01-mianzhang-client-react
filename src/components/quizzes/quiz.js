@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useParams} from 'react-router-dom'
 import Question from "./questions/question";
 import questionService from "../../services/question-service"
-
+import quizzesService from "../../services/quizzes-service"
 
 const Quiz = () => {
     const {courseId, quizId} = useParams();
@@ -23,6 +23,13 @@ const Quiz = () => {
                     )
                 }
             </ul>
+            <button
+                className="btn btn-success float-right"
+                onClick={(quizId, questions) => {
+                    quizzesService.submitQuiz(quizId, questions)
+                }}>
+                Submit
+            </button>
         </div>
     );
 }

@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import './question-color-bar.css'
+import questionService from "../../../services/question-service";
+import quizzesService from "../../../services/quizzes-service"
 
 const TrueFalseQuestion = ({question}) => {
     const [answer, setAnswer] = useState(null)
@@ -47,6 +49,11 @@ const TrueFalseQuestion = ({question}) => {
                             return (
                                 <label className={`list-group-item ${RadioColor(answer, choice,graded)}`}>
                                     <input
+                                        // onChange={(e) =>
+                                        //     setCahedItem({
+                                        //         ...cachedItem,
+                                        //         title: e.target.value
+                                        //     })}
                                         onClick={() => {
                                             setAnswer(choice)
                                             setGraded(false)
