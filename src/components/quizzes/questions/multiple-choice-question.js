@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import './question-color-bar.css'
+import questionService from "../../../services/question-service";
 
 const MultipleChoiceQuestion = ({question}) => {
     const [answer, setAnswer] = useState(null)
@@ -69,6 +70,7 @@ const MultipleChoiceQuestion = ({question}) => {
                 className="btn btn-success"
                 onClick={() => {
                     setGraded(true)
+                    questionService.updateAnswer(question._id, answer)
                 }}>
                 Grade
             </button>

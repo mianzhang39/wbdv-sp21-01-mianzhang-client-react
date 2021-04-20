@@ -12,14 +12,18 @@ const findQuestionById = (qid) => {
 }
 
 const updateAnswer = (quid, answer) => {
+    // console.log(answer)
+    let data = {"answer": answer}
     fetch(`${QUESTION_URL}/${quid}`, {
         method: 'PUT',
-        body: JSON.stringify(answer),
+        body: JSON.stringify(data),
         headers: {
             'content-type': 'application/json'
         }
     }).then(response => response.json())
 }
+
+
 
 
 export default {

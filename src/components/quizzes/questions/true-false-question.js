@@ -49,11 +49,6 @@ const TrueFalseQuestion = ({question}) => {
                             return (
                                 <label className={`list-group-item ${RadioColor(answer, choice,graded)}`}>
                                     <input
-                                        // onChange={(e) =>
-                                        //     setCahedItem({
-                                        //         ...cachedItem,
-                                        //         title: e.target.value
-                                        //     })}
                                         onClick={() => {
                                             setAnswer(choice)
                                             setGraded(false)
@@ -74,7 +69,10 @@ const TrueFalseQuestion = ({question}) => {
 
             <button
                 class="btn btn-success"
-                onClick={() => setGraded(true)}>
+                onClick={() => {
+                    setGraded(true)
+                    questionService.updateAnswer(question._id, answer)
+                }}>
                 Grade
             </button>
         </div>

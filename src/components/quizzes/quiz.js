@@ -24,10 +24,7 @@ const Quiz = () => {
                 }
             </ul>
             <button
-                className="btn btn-success float-right"
-                onClick={(quizId, questions) => {
-                    quizzesService.submitQuiz(quizId, questions)
-                }}>
+                className="btn btn-success float-right">
                 Submit
             </button>
         </div>
