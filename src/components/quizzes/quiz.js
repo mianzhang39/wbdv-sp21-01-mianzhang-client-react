@@ -24,7 +24,10 @@ const Quiz = () => {
                 }
             </ul>
             <button
-                className="btn btn-success float-right">
+                className="btn btn-success float-right"
+                onClick={() => {
+                    quizzesService.submitQuiz (quizId, questions)
+                }}>
                 Submit
             </button>
         </div>
